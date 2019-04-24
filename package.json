@@ -1,0 +1,28 @@
+{
+  "name": "web-scapping-learning",
+  "version": "1.0.0",
+  "description": "learning web scrapping with node and Puppeteer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/canuto491/web-scapping-learning.git"
+  },
+  "keywords": [
+    "javascript",
+    "scrapping",
+    "puppeteer",
+    "node"
+  ],
+  "author": "Luis Sousa <canuto491@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/canuto491/web-scapping-learning/issues"
+  },
+  "homepage": "https://github.com/canuto491/web-scapping-learning#readme",
+  "devDependencies": {
+    "puppeteer": "^1.14.0"
+  }
+}
