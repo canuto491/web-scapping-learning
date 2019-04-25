@@ -58,12 +58,17 @@ function processMunicipalities() {
 async function getNif() {
     const ulr = 'https://nif.marcosantos.me/';
 
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch(
+        {
+            headless: false,
+            slowMo: 250, // slow down by 250ms
+            devtools: true,
+        }
+    );
     const page = await browser.newPage();
     await page.goto(ulr);
 
     let nif = await page.evaluate(processNifPage);
-
     await browser.close();
     return nif;
 }
