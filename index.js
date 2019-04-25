@@ -1,8 +1,11 @@
 const puppeteer = require('puppeteer');
 
 (async () => {
-    let municipalities = await getMadeiraMunicipalities();
-    console.log('municipalities', municipalities);
+    // let municipalities = await getMadeiraMunicipalities();
+    // console.log('municipalities', municipalities);
+
+    let nif = await getNif();
+    console.log('nif', nif);
 })();
 
 
@@ -50,4 +53,22 @@ function processMunicipalities() {
     });
 
     return municipalities;
+}
+
+async function getNif() {
+    const ulr = 'https://nif.marcosantos.me/';
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(ulr);
+
+    let nif = await page.evaluate(processNifPage);
+
+    await browser.close();
+    return nif;
+}
+
+function processNifPage() {
+    let nif = document.querySelector('#nif').innerText.trim();
+    return nif;
 }
