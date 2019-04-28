@@ -1,11 +1,14 @@
 const puppeteer = require('puppeteer');
+const fmt = require('./helpers/node-colors.js');
 
 (async () => {
-    // let municipalities = await getMadeiraMunicipalities();
-    // console.log('municipalities', municipalities);
-
+    let municipalities = await getMadeiraMunicipalities();
     let nif = await getNif();
-    console.log('nif', nif);
+
+    console.log(fmt.format('info'), 'Municipalities');
+
+    console.log(fmt.format('info', 1), 'municipalities', municipalities);
+    console.log(fmt.format('info', 1), 'nif', nif);
 })();
 
 
@@ -60,9 +63,9 @@ async function getNif() {
 
     const browser = await puppeteer.launch(
         {
-            headless: false,
-            slowMo: 250, // slow down by 250ms
-            devtools: true,
+            // headless: false,
+            // slowMo: 250, // slow down by 250ms
+            // devtools: true,
         }
     );
     const page = await browser.newPage();
